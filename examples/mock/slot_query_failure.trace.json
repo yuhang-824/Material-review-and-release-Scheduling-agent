@@ -1,0 +1,86 @@
+{
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": true,
+        "found": true,
+        "material": {
+          "title": "秋日城市漫步",
+          "caption": "分享今天拍下的街景。",
+          "copyright": "owned"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "passed",
+        "risks": [],
+        "missing_fields": [],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "tool": "query_slots",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "规则通过，检查已有排期和草稿占位。"
+      },
+      "decision_basis": "规则通过，检查已有排期和草稿占位。",
+      "observation": {
+        "ok": false,
+        "error": "slot_query_failed"
+      },
+      "next_action": "close_item"
+    },
+    {
+      "step": 4,
+      "tool": "close_item",
+      "arguments": {
+        "outcome": "tool_failure",
+        "material_id": "M01",
+        "reason": "时段工具失败，不能猜测可用时间。"
+      },
+      "decision_basis": "时段工具失败，不能猜测可用时间。",
+      "observation": {
+        "ok": true,
+        "outcome": "tool_failure"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "tool": "finish",
+      "arguments": {
+        "reason": "每项素材均有工具支持的最终处理结果。"
+      },
+      "decision_basis": "每项素材均有工具支持的最终处理结果。",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "published": false
+      },
+      "next_action": "end"
+    }
+  ]
+}

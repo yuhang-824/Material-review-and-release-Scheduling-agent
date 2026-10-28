@@ -1,0 +1,10 @@
+{
+  "request_id": "multi_material",
+  "material_ids": [
+    "M01",
+    "M07"
+  ],
+  "requested_at": "2030-06-01T18:00+08:00",
+  "channel": "main",
+  "hard_time": true
+}

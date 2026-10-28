@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "request": {
+    "request_id": "normal",
+    "material_ids": [
+      "M01"
+    ],
+    "requested_at": "2030-06-01T17:00+08:00",
+    "channel": "main",
+    "hard_time": true,
+    "confirmed_alternatives": {}
+  },
+  "generated_at": "2026-10-28T07:17:27+00:00",
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "requested_model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "status": "completed",
+  "stop_reason": "model_finished",
+  "steps": 5,
+  "max_steps": 32,
+  "usage": null,
+  "published": false,
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "requested_at": "2030-06-01T17:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2030-06-01T17:00+08:00",
+      "pending_items": [],
+      "draft_save_status": "saved",
+      "draft_id": "draft_0d49927ac584f69e",
+      "draft_status": "ready",
+      "outcome": "draft_saved",
+      "tool_errors": [],
+      "published": false
+    }
+  ]
+}

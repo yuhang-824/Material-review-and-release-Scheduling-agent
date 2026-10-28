@@ -1,0 +1,63 @@
+Note: local project path redacted; test output otherwise unchanged.
+UTC: 2026-10-28T07:17:27+00:00
+Command: python -m unittest discover -s tests -v
+Exit code: 1
+
+test_cli_invalid_input_exit_one (test_scheduler.CLITests.test_cli_invalid_input_exit_one) ... ok
+test_cli_real_mode_missing_key_exit_one (test_scheduler.CLITests.test_cli_real_mode_missing_key_exit_one) ... ok
+test_cli_save_failure_exit_two (test_scheduler.CLITests.test_cli_save_failure_exit_two) ... ok
+test_cli_step_limit_exit_two (test_scheduler.CLITests.test_cli_step_limit_exit_two) ... ok
+test_cli_utf8_and_persistent_replay (test_scheduler.CLITests.test_cli_utf8_and_persistent_replay) ... ok
+test_http_error_does_not_echo_sensitive_response (test_scheduler.CLITests.test_http_error_does_not_echo_sensitive_response) ... ERROR
+test_changed_material_not_silently_overwritten (test_scheduler.SchedulerTests.test_changed_material_not_silently_overwritten) ... ok
+test_concurrent_duplicate_creates_one_draft (test_scheduler.SchedulerTests.test_concurrent_duplicate_creates_one_draft) ... ok
+test_confirmation_does_not_apply_to_another_time (test_scheduler.SchedulerTests.test_confirmation_does_not_apply_to_another_time) ... ok
+test_confirmation_upgrades_same_draft (test_scheduler.SchedulerTests.test_confirmation_upgrades_same_draft) ... ok
+test_conflict_changed_results_change (test_scheduler.SchedulerTests.test_conflict_changed_results_change) ... ok
+test_conflict_requires_confirmation (test_scheduler.SchedulerTests.test_conflict_requires_confirmation) ... ok
+test_duplicate_material_ids_rejected (test_scheduler.SchedulerTests.test_duplicate_material_ids_rejected) ... ok
+test_duplicate_submission_one_draft (test_scheduler.SchedulerTests.test_duplicate_submission_one_draft) ... ok
+test_early_finish_is_rejected (test_scheduler.SchedulerTests.test_early_finish_is_rejected) ... ok
+test_equivalent_timezones_canonicalized (test_scheduler.SchedulerTests.test_equivalent_timezones_canonicalized) ... ok
+test_fake_model_approval_rejected (test_scheduler.SchedulerTests.test_fake_model_approval_rejected) ... ok
+test_missing_metadata (test_scheduler.SchedulerTests.test_missing_metadata) ... ok
+test_model_cannot_request_material_outside_input (test_scheduler.SchedulerTests.test_model_cannot_request_material_outside_input) ... ok
+test_model_failure_is_not_silent_mock_fallback (test_scheduler.SchedulerTests.test_model_failure_is_not_silent_mock_fallback) ... ok
+test_naive_time_rejected (test_scheduler.SchedulerTests.test_naive_time_rejected) ... ok
+test_no_credentials_real_model_fails_explicitly (test_scheduler.SchedulerTests.test_no_credentials_real_model_fails_explicitly) ... ok
+test_no_publish_tool (test_scheduler.SchedulerTests.test_no_publish_tool) ... ok
+test_no_slots (test_scheduler.SchedulerTests.test_no_slots) ... ok
+test_normal (test_scheduler.SchedulerTests.test_normal) ... ok
+test_observations_are_returned_to_next_model_call (test_scheduler.SchedulerTests.test_observations_are_returned_to_next_model_call) ... ok
+test_overlap_not_just_equal_start (test_scheduler.SchedulerTests.test_overlap_not_just_equal_start) ... ok
+test_pending_drafts_reserve_slot_for_other_materials (test_scheduler.SchedulerTests.test_pending_drafts_reserve_slot_for_other_materials) ... ok
+test_query_failure (test_scheduler.SchedulerTests.test_query_failure) ... ok
+test_read_failure (test_scheduler.SchedulerTests.test_read_failure) ... ok
+test_recheck_conflict_during_save (test_scheduler.SchedulerTests.test_recheck_conflict_during_save) ... ok
+test_recovered_tool_error_does_not_override_later_success (test_scheduler.SchedulerTests.test_recovered_tool_error_does_not_override_later_success) ... ok
+test_request_id_cannot_be_reused_for_different_input (test_scheduler.SchedulerTests.test_request_id_cannot_be_reused_for_different_input) ... ok
+test_risk_blocked (test_scheduler.SchedulerTests.test_risk_blocked) ... ok
+test_risky_material_cannot_save_directly (test_scheduler.SchedulerTests.test_risky_material_cannot_save_directly) ... ok
+test_save_failure_is_not_success (test_scheduler.SchedulerTests.test_save_failure_is_not_success) ... ok
+test_soft_time_also_requires_confirmation (test_scheduler.SchedulerTests.test_soft_time_also_requires_confirmation) ... ok
+test_step_limit_returns_incomplete (test_scheduler.SchedulerTests.test_step_limit_returns_incomplete) ... ok
+test_supplement_then_recheck (test_scheduler.SchedulerTests.test_supplement_then_recheck) ... ok
+test_unknown_copyright_requires_human (test_scheduler.SchedulerTests.test_unknown_copyright_requires_human) ... ok
+test_unqueried_slot_save_rejected (test_scheduler.SchedulerTests.test_unqueried_slot_save_rejected) ... ok
+test_unread_or_unreviewed_save_rejected (test_scheduler.SchedulerTests.test_unread_or_unreviewed_save_rejected) ... ok
+test_malformed_response_fails (test_scheduler.TransportTests.test_malformed_response_fails) ... ok
+test_native_tool_call_and_observation_transport (test_scheduler.TransportTests.test_native_tool_call_and_observation_transport) ... ok
+
+======================================================================
+ERROR: test_http_error_does_not_echo_sensitive_response (test_scheduler.CLITests.test_http_error_does_not_echo_sensitive_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<PROJECT_ROOT>\tests\test_scheduler.py", line 367, in test_http_error_does_not_echo_sensitive_response
+    self.model().decide([], [])
+    ^^^^^^^^^^
+AttributeError: 'CLITests' object has no attribute 'model'
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.760s
+
+FAILED (errors=1)

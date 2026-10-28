@@ -1,0 +1,43 @@
+{
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": true,
+        "found": true,
+        "material": {
+          "title": "秋日城市漫步",
+          "caption": "分享今天拍下的街景。",
+          "copyright": "owned"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "passed",
+        "risks": [],
+        "missing_fields": [],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "stop:step_limit_reached"
+    }
+  ]
+}

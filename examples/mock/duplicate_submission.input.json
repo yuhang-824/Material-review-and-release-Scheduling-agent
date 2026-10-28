@@ -1,0 +1,9 @@
+{
+  "request_id": "duplicate_submission",
+  "material_ids": [
+    "M01"
+  ],
+  "requested_at": "2030-06-01T17:00+08:00",
+  "channel": "main",
+  "hard_time": true
+}

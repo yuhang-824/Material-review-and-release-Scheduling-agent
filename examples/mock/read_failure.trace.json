@@ -1,0 +1,50 @@
+{
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": false,
+        "error": "material_read_failed"
+      },
+      "next_action": "close_item"
+    },
+    {
+      "step": 2,
+      "tool": "close_item",
+      "arguments": {
+        "outcome": "tool_failure",
+        "material_id": "M01",
+        "reason": "读取工具失败，明确停止。"
+      },
+      "decision_basis": "读取工具失败，明确停止。",
+      "observation": {
+        "ok": true,
+        "outcome": "tool_failure"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "tool": "finish",
+      "arguments": {
+        "reason": "每项素材均有工具支持的最终处理结果。"
+      },
+      "decision_basis": "每项素材均有工具支持的最终处理结果。",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "published": false
+      },
+      "next_action": "end"
+    }
+  ]
+}

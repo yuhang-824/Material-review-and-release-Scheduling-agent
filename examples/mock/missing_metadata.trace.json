@@ -1,0 +1,124 @@
+{
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M02",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": true,
+        "found": true,
+        "material": {
+          "title": "周末旅行记录",
+          "caption": "海边日落与旅行片段。"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M02",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "needs_information",
+        "risks": [
+          {
+            "code": "missing_metadata",
+            "fields": [
+              "copyright"
+            ]
+          }
+        ],
+        "missing_fields": [
+          "copyright"
+        ],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "lookup_metadata"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_metadata",
+      "arguments": {
+        "material_id": "M02",
+        "reason": "检测到缺失字段，尝试可信资料源补查。"
+      },
+      "decision_basis": "检测到缺失字段，尝试可信资料源补查。",
+      "observation": {
+        "ok": true,
+        "lookup_status": "not_found",
+        "material": {
+          "title": "周末旅行记录",
+          "caption": "海边日落与旅行片段。"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 4,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M02",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "needs_information",
+        "risks": [
+          {
+            "code": "missing_metadata",
+            "fields": [
+              "copyright"
+            ]
+          }
+        ],
+        "missing_fields": [
+          "copyright"
+        ],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "close_item"
+    },
+    {
+      "step": 5,
+      "tool": "close_item",
+      "arguments": {
+        "outcome": "needs_information",
+        "material_id": "M02",
+        "reason": "规则检查未通过，保留待处理项。"
+      },
+      "decision_basis": "规则检查未通过，保留待处理项。",
+      "observation": {
+        "ok": true,
+        "outcome": "needs_information"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 6,
+      "tool": "finish",
+      "arguments": {
+        "reason": "每项素材均有工具支持的最终处理结果。"
+      },
+      "decision_basis": "每项素材均有工具支持的最终处理结果。",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "published": false
+      },
+      "next_action": "end"
+    }
+  ]
+}

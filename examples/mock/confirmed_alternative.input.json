@@ -1,0 +1,12 @@
+{
+  "request_id": "confirmed_alternative",
+  "material_ids": [
+    "M01"
+  ],
+  "requested_at": "2030-06-01T18:00+08:00",
+  "channel": "main",
+  "hard_time": true,
+  "confirmed_alternatives": {
+    "M01": "2030-06-01T19:00+08:00"
+  }
+}

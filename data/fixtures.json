@@ -1,0 +1,22 @@
+{
+  "description": "全部为合成资料，无真实用户、素材或发布接入。每个草稿占用一个小时。",
+  "rules": {
+    "version": "2026-10-28-v1",
+    "required_fields": ["title", "caption", "copyright"],
+    "prohibited_terms": ["绝对治愈", "稳赚不赔"]
+  },
+  "materials": {
+    "M01": {"title": "秋日城市漫步", "caption": "分享今天拍下的街景。", "copyright": "owned"},
+    "M02": {"title": "周末旅行记录", "caption": "海边日落与旅行片段。"},
+    "M03": {"title": "产品体验", "caption": "绝对治愈一切烦恼", "copyright": "unlicensed"},
+    "M04": {"title": "手作教程", "caption": "一起制作纸艺小花。", "copyright": "owned"},
+    "M05": {"title": "音乐剪辑", "caption": "跟随音乐记录生活。"},
+    "M06": {"title": "体验分享", "caption": "包含需人工核实的声明。", "copyright": "unknown"},
+    "M07": {"title": "夜间摄影", "caption": "记录城市夜景。", "copyright": "licensed"}
+  },
+  "supplements": {"M05": {"copyright": "licensed"}},
+  "existing_schedule": [
+    {"material_id": "EXISTING-01", "channel": "main", "proposed_at": "2030-06-01T18:00+08:00"}
+  ],
+  "fail_save_ids": ["M04"]
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "request": {
+    "request_id": "confirmed_alternative-seed",
+    "material_ids": [
+      "M01"
+    ],
+    "requested_at": "2030-06-01T18:00+08:00",
+    "channel": "main",
+    "hard_time": true,
+    "confirmed_alternatives": {}
+  },
+  "generated_at": "2026-10-28T07:17:27+00:00",
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "requested_model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "status": "needs_attention",
+  "stop_reason": "model_finished",
+  "steps": 5,
+  "max_steps": 32,
+  "usage": null,
+  "published": false,
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "requested_at": "2030-06-01T18:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2030-06-01T19:00+08:00",
+      "pending_items": [
+        "confirm_alternative_time"
+      ],
+      "draft_save_status": "saved",
+      "draft_id": "draft_6d73a21219b94c15",
+      "draft_status": "pending_confirmation",
+      "outcome": "draft_saved",
+      "tool_errors": [],
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": true,
+        "found": true,
+        "material": {
+          "title": "秋日城市漫步",
+          "caption": "分享今天拍下的街景。",
+          "copyright": "owned"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "passed",
+        "risks": [],
+        "missing_fields": [],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "tool": "query_slots",
+      "arguments": {
+        "material_id": "M01",
+        "reason": "规则通过，检查已有排期和草稿占位。"
+      },
+      "decision_basis": "规则通过，检查已有排期和草稿占位。",
+      "observation": {
+        "ok": true,
+        "preferred_at": "2030-06-01T18:00+08:00",
+        "slot_duration_minutes": 60,
+        "candidates": [
+          {
+            "at": "2030-06-01T18:00+08:00",
+            "available": false,
+            "conflicts": [
+              "EXISTING-01"
+            ]
+          },
+          {
+            "at": "2030-06-01T19:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "at": "2030-06-01T20:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "at": "2030-06-01T21:00+08:00",
+            "available": true,
+            "conflicts": []
+          }
+        ]
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "tool": "save_draft",
+      "arguments": {
+        "proposed_at": "2030-06-01T19:00+08:00",
+        "material_id": "M01",
+        "reason": "原时段冲突，选择可用替代时段，确认状态交由保存工具校验。"
+      },
+      "decision_basis": "原时段冲突，选择可用替代时段，确认状态交由保存工具校验。",
+      "observation": {
+        "ok": true,
+        "save_status": "saved",
+        "draft": {
+          "operation_key": "6d73a21219b94c157eb45da458e40c839b4c2efe99a2cb5d4f08bfa4698b23fb",
+          "draft_id": "draft_6d73a21219b94c15",
+          "material_id": "M01",
+          "channel": "main",
+          "requested_at": "2030-06-01T18:00+08:00",
+          "proposed_at": "2030-06-01T19:00+08:00",
+          "hard_time": true,
+          "status": "pending_confirmation",
+          "confirmation": "required_for_time_change",
+          "material_digest": "73661a44326d4e4a9ec5408638d9bb6fa3acf5fac67416bcc81bbaab59db96c9",
+          "rules_version": "2026-10-28-v1",
+          "published": false
+        }
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "tool": "finish",
+      "arguments": {
+        "reason": "每项素材均有工具支持的最终处理结果。"
+      },
+      "decision_basis": "每项素材均有工具支持的最终处理结果。",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "published": false
+      },
+      "next_action": "end"
+    }
+  ]
+}

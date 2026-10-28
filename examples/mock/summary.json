@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-10-28T07:17:27+00:00",
+  "python": "3.11.9",
+  "execution_mode": "mock",
+  "business_tools": "synthetic local tools",
+  "cases": [
+    {
+      "name": "normal",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "completed",
+        "review": "passed",
+        "save": "saved",
+        "draft": "ready"
+      },
+      "actual_status": "completed",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "normal.input.json",
+      "data": "normal.data.json",
+      "output": "normal.output.json",
+      "trace": "normal.trace.json"
+    },
+    {
+      "name": "missing_metadata",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "review": "needs_information",
+        "save": "not_saved"
+      },
+      "actual_status": "needs_attention",
+      "steps": 6,
+      "draft_count": 0,
+      "input": "missing_metadata.input.json",
+      "data": "missing_metadata.data.json",
+      "output": "missing_metadata.output.json",
+      "trace": "missing_metadata.trace.json"
+    },
+    {
+      "name": "rule_risk",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "review": "blocked",
+        "save": "not_saved"
+      },
+      "actual_status": "needs_attention",
+      "steps": 4,
+      "draft_count": 0,
+      "input": "rule_risk.input.json",
+      "data": "rule_risk.data.json",
+      "output": "rule_risk.output.json",
+      "trace": "rule_risk.trace.json"
+    },
+    {
+      "name": "slot_conflict",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "save": "saved",
+        "draft": "pending_confirmation",
+        "at": "2030-06-01T19:00+08:00"
+      },
+      "actual_status": "needs_attention",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "slot_conflict.input.json",
+      "data": "slot_conflict.data.json",
+      "output": "slot_conflict.output.json",
+      "trace": "slot_conflict.trace.json"
+    },
+    {
+      "name": "duplicate_submission",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "completed",
+        "save": "already_exists",
+        "draft_count": 1
+      },
+      "actual_status": "completed",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "duplicate_submission.input.json",
+      "data": "duplicate_submission.data.json",
+      "output": "duplicate_submission.output.json",
+      "trace": "duplicate_submission.trace.json"
+    },
+    {
+      "name": "save_failure",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "failed",
+        "save": "failed",
+        "draft_count": 0
+      },
+      "actual_status": "failed",
+      "steps": 6,
+      "draft_count": 0,
+      "input": "save_failure.input.json",
+      "data": "save_failure.data.json",
+      "output": "save_failure.output.json",
+      "trace": "save_failure.trace.json"
+    },
+    {
+      "name": "supplement_found",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "completed",
+        "review": "passed",
+        "save": "saved"
+      },
+      "actual_status": "completed",
+      "steps": 7,
+      "draft_count": 1,
+      "input": "supplement_found.input.json",
+      "data": "supplement_found.data.json",
+      "output": "supplement_found.output.json",
+      "trace": "supplement_found.trace.json"
+    },
+    {
+      "name": "human_review",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "review": "human_review",
+        "save": "not_saved"
+      },
+      "actual_status": "needs_attention",
+      "steps": 4,
+      "draft_count": 0,
+      "input": "human_review.input.json",
+      "data": "human_review.data.json",
+      "output": "human_review.output.json",
+      "trace": "human_review.trace.json"
+    },
+    {
+      "name": "confirmed_alternative",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "completed",
+        "save": "updated",
+        "draft": "ready",
+        "draft_count": 1
+      },
+      "actual_status": "completed",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "confirmed_alternative.input.json",
+      "data": "confirmed_alternative.data.json",
+      "output": "confirmed_alternative.output.json",
+      "trace": "confirmed_alternative.trace.json"
+    },
+    {
+      "name": "changed_occupied",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "at": "2030-06-01T20:00+08:00",
+        "draft": "pending_confirmation"
+      },
+      "actual_status": "needs_attention",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "changed_occupied.input.json",
+      "data": "changed_occupied.data.json",
+      "output": "changed_occupied.output.json",
+      "trace": "changed_occupied.trace.json"
+    },
+    {
+      "name": "no_slot",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "save": "not_saved",
+        "outcome": "no_slot"
+      },
+      "actual_status": "needs_attention",
+      "steps": 5,
+      "draft_count": 0,
+      "input": "no_slot.input.json",
+      "data": "no_slot.data.json",
+      "output": "no_slot.output.json",
+      "trace": "no_slot.trace.json"
+    },
+    {
+      "name": "read_failure",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "failed",
+        "review": "not_checked",
+        "save": "not_saved"
+      },
+      "actual_status": "failed",
+      "steps": 3,
+      "draft_count": 0,
+      "input": "read_failure.input.json",
+      "data": "read_failure.data.json",
+      "output": "read_failure.output.json",
+      "trace": "read_failure.trace.json"
+    },
+    {
+      "name": "slot_query_failure",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "failed",
+        "save": "not_saved"
+      },
+      "actual_status": "failed",
+      "steps": 5,
+      "draft_count": 0,
+      "input": "slot_query_failure.input.json",
+      "data": "slot_query_failure.data.json",
+      "output": "slot_query_failure.output.json",
+      "trace": "slot_query_failure.trace.json"
+    },
+    {
+      "name": "step_limit",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "incomplete",
+        "stop": "step_limit_reached"
+      },
+      "actual_status": "incomplete",
+      "steps": 2,
+      "draft_count": 0,
+      "input": "step_limit.input.json",
+      "data": "step_limit.data.json",
+      "output": "step_limit.output.json",
+      "trace": "step_limit.trace.json"
+    },
+    {
+      "name": "multi_material",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "draft_count": 2
+      },
+      "actual_status": "needs_attention",
+      "steps": 9,
+      "draft_count": 2,
+      "input": "multi_material.input.json",
+      "data": "multi_material.data.json",
+      "output": "multi_material.output.json",
+      "trace": "multi_material.trace.json"
+    },
+    {
+      "name": "untrusted_material_text",
+      "passed": true,
+      "errors": [],
+      "expected": {
+        "status": "needs_attention",
+        "draft": "pending_confirmation"
+      },
+      "actual_status": "needs_attention",
+      "steps": 5,
+      "draft_count": 1,
+      "input": "untrusted_material_text.input.json",
+      "data": "untrusted_material_text.data.json",
+      "output": "untrusted_material_text.output.json",
+      "trace": "untrusted_material_text.trace.json"
+    }
+  ],
+  "elapsed_seconds": 0.266,
+  "passed": 16,
+  "total": 16
+}

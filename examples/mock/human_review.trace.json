@@ -1,0 +1,76 @@
+{
+  "execution_mode": "mock",
+  "model": "deterministic-offline-policy-v1",
+  "evidence_boundary": "Mock verifies orchestration and guards only; not real model decision quality.",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "get_material",
+      "arguments": {
+        "material_id": "M06",
+        "reason": "先读取素材事实。"
+      },
+      "decision_basis": "先读取素材事实。",
+      "observation": {
+        "ok": true,
+        "found": true,
+        "material": {
+          "title": "体验分享",
+          "caption": "包含需人工核实的声明。",
+          "copyright": "unknown"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "arguments": {
+        "material_id": "M06",
+        "reason": "根据当前元数据核对规则。"
+      },
+      "decision_basis": "根据当前元数据核对规则。",
+      "observation": {
+        "ok": true,
+        "status": "human_review",
+        "risks": [
+          {
+            "code": "copyright_requires_review"
+          }
+        ],
+        "missing_fields": [],
+        "rules_version": "2026-10-28-v1"
+      },
+      "next_action": "close_item"
+    },
+    {
+      "step": 3,
+      "tool": "close_item",
+      "arguments": {
+        "outcome": "human_review",
+        "material_id": "M06",
+        "reason": "规则检查未通过，保留待处理项。"
+      },
+      "decision_basis": "规则检查未通过，保留待处理项。",
+      "observation": {
+        "ok": true,
+        "outcome": "human_review"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "tool": "finish",
+      "arguments": {
+        "reason": "每项素材均有工具支持的最终处理结果。"
+      },
+      "decision_basis": "每项素材均有工具支持的最终处理结果。",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "published": false
+      },
+      "next_action": "end"
+    }
+  ]
+}
